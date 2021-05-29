@@ -207,7 +207,7 @@ function logData() // Console
     console.log("Population: " + population);
     console.log("Infected: " + getTotalInfected());
     console.log("Dead: " + deadPeople);
-    onsole.log("Dead Today: ");
+    console.log("Dead Today: ");
     console.log("Immune:" + immunePeople);
     console.log("Not Yet Infected:" + canBeInfected);
     console.log("-----------");

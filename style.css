@@ -1,0 +1,11 @@
+.container{
+    display: grid;
+    column-gap: 10px;
+    grid-template-columns: 100px 100px 100px 100px 100px 100px 100px 100px;
+}
+
+
+.column{
+    text-align: center;
+    background-color: rgb(202, 214, 248);
+}

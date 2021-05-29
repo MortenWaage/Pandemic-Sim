@@ -148,7 +148,8 @@ function checkIfPeopleDied()
         
         // Add this iterations dead to total dead
         deadPeople += deadPeopleAtDay;
-
+        todaysDead += deadPeopleAtDay;
+        
         // Lower the population by dead people from current iteration
         population -= deadPeopleAtDay;
         if (population < 0)

@@ -48,10 +48,10 @@ function init()
     totalElement = document.getElementById("total");
 
     // Sets the number of people available for infection
-    canBeInfected = population;
+    
     //Sets the first index of the array holding our infected to the initial number of infected persons
     currentlyInfected[0] = initiallyInfected;
-
+    canBeInfected = population - initiallyInfected;
     // Initializes the array holding our infected by making sure we have as many indexes as the days it takes for the infection to run its course
     for (i = 1; i < daysBeforeHealthy; i++)
     {
@@ -120,7 +120,7 @@ function infectNewPeople()
 
     // Gets the lowest number out of how many got infected and how many people are left who can be infected
     let newInfectedPeople = Math.min((getTotalInfected() * rNumber), canBeInfected);
-
+    canBeInfected -= newInfectedPeople;
     // adds the newly infected people into the first index of the array
     currentlyInfected[0] = Math.floor(newInfectedPeople);
 }
@@ -145,11 +145,10 @@ function checkIfPeopleDied()
 
         // Floor the number. A person is either dead or alive, not 50% dead.
         deadPeopleAtDay = Math.floor(deadPeopleAtDay);  
-        
+        todaysDead += deadPeopleAtDay;
         // Add this iterations dead to total dead
         deadPeople += deadPeopleAtDay;
-        todaysDead += deadPeopleAtDay;
-        
+
         // Lower the population by dead people from current iteration
         population -= deadPeopleAtDay;
         if (population < 0)
@@ -207,7 +206,7 @@ function logData() // Console
     console.log("Population: " + population);
     console.log("Infected: " + getTotalInfected());
     console.log("Dead: " + deadPeople);
-    console.log("Dead Today: ");
+    onsole.log("Dead Today: ");
     console.log("Immune:" + immunePeople);
     console.log("Not Yet Infected:" + canBeInfected);
     console.log("-----------");
